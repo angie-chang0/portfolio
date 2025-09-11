@@ -5,4 +5,104 @@ body {
  font: 100%/1.5 system-ui;
 }
 
+/* Accent color available to whole document */
+html {
+ --color-accent: oklch(65% 50% 0);
+ accent-color: var(--color-accent);
+}
+
+/* Constrain content width and center it with breathing room */
+body {
+ max-width: 100ch;
+ margin-inline: auto;
+ padding-inline: 1em;
+}
+
+/* Headings hierarchy & balance */
+h1, h2, h3, h4, h5, h6 {
+ line-height: 1.1;
+ text-wrap: balance;
+}
+
+h1 {
+ font-size: 400%;
+}
+
+/* Images should not overflow their containers */
+img {
+ max-width: 100%;
+ height: auto;
+}
+
+/* Navigation styling */
+nav {
+ display: flex;
+ gap: 0.5em;
+ margin-bottom: 1em;
+ border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav a {
+ flex: 1;
+ text-decoration: none;
+ color: inherit;
+ text-align: center;
+ padding: 0.5em;
+}
+
+/* Current page indicator and hover styles */
+nav a.current {
+ border-bottom: 0.4em solid oklch(80% 3% 200);
+ padding-bottom: 0.1em;
+}
+
+nav a:hover {
+ border-bottom: 0.4em solid var(--color-accent);
+ background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+/* Projects responsive grid */
+.projects {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+ gap: 1em;
+}
+
+.projects article {
+ display: grid;
+ grid-template-rows: subgrid;
+ grid-row: span 3;
+ gap: 0.5em;
+}
+
+.projects h2 {
+ margin: 0;
+}
+
+/* Contact form grid layout */
+form {
+ display: grid;
+ grid-template-columns: auto 1fr;
+ gap: 1em;
+}
+
+/* Let label contents (text + input) participate directly in grid */
+label {
+ display: contents;
+}
+
+input, textarea, button {
+ font: inherit;
+}
+
+input, textarea {
+ width: 100%;
+ box-sizing: border-box;
+}
+
+/* Make submit button span full width */
+button {
+ grid-column: 1 / -1;
+}
+
 
